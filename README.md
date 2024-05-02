@@ -22,7 +22,7 @@ The Medical Insurance Premium Prediction project is a machine learning-based app
 - Ashwin Sabu
 - M. Reshma
 - V Rithin Chand
-- NAMBIR KRISHNENDU
+- Nambiar Krishnendu Radhakrishnan
 
 ## Credits
 This project was created by B. Nandana, Ashwin Sabu, M. Reshma, V Rithin Chand, and NAMBIR KRISHNENDU as part of the VIEH Group Machine Learning Internship program.
