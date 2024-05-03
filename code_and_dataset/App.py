@@ -3,10 +3,8 @@ import pandas as pd
 import pickle as pkl 
 import streamlit as st
 
-# Load your machine learning model
 model = pkl.load(open('C:\\Users\\bnand\\Documents\\SEM 6\\VIEH\\internship_project\\MIPML.pkl', 'rb'))
 
-# Header and input widgets
 st.markdown("<h1 style='text-align: center; color: #1f77b4;'>Medical Insurance Premium Predictor</h1>", unsafe_allow_html=True)
 
 st.markdown(
@@ -43,7 +41,7 @@ with col3:
     b = st.button("PREDICT")
 
 if b:
-    error_flag = False  # Flag to track if any error occurred
+    error_flag = False  
 
     if gender == 'Choose':
         st.error("Please select a gender.")
@@ -58,7 +56,6 @@ if b:
         st.error("Please fill in all input fields.")
         error_flag = True
     else:
-        # Validate inputs
         try:
             age = int(age)
             bmi = float(bmi)
@@ -96,17 +93,13 @@ if b:
             else:
                 region = 3
 
-            # Prepare input data for prediction
             input_data = (age, gender, bmi, children, smoker, region)
             input_data_array = np.asarray(input_data).reshape(1,-1)
             
-            # Make prediction
             predicted_prem = model.predict(input_data_array)
 
-            # Adjusted premium (multiplied by 83)
             adjusted_prem = round(predicted_prem[0]*83)
 
-            # Display result with some styling
             st.markdown(
                 f"<h2 style='text-align: center; color: #1f77b4;'>Estimated Insurance Premium:</h2>"
                 f"<h1 style='text-align: center; color: #ff6c13;'>₹ {adjusted_prem}</h1>"
